@@ -1,0 +1,67 @@
+using System;
+
+namespace linkedlist{
+public class HelloWorld
+
+{
+    public static void printlist(LinkedList print){
+        Node first=print.head;
+       while(first!=null){
+          Console.Write(first.data+" "); 
+          first=first.next;
+       } 
+        
+    }
+    
+    public static void Main(string[] args)
+    {
+     LinkedList mylist=new LinkedList();
+     Node one=new Node(1);
+     Node two=new Node(2);
+     Node three=new Node(3);
+     Node four=new Node(4);
+     Node five=new Node(5);
+     mylist.mymethod(one);
+     mylist.mymethod(two);
+     mylist.mymethod(three);
+     mylist.mymethod(four);
+     mylist.mymethod(five);
+     printlist(mylist);
+    }
+}
+public class Node{
+    internal Node next=null; 
+     internal int data;
+    public Node(int data){
+       this.data=data; 
+        
+    }
+    }
+    
+    
+    public class LinkedList{
+     internal Node head;
+     public void  mymethod(Node n){
+        if(head==null){//list is empty hence add node n as the first element
+         head=n;   
+         
+        } 
+       else{
+          Node last=head.next; 
+          Node previous=head;
+          
+          while(last!=null){
+              previous=last;
+              last=last.next;
+              
+          }
+          previous.next=n;
+          
+       }  
+         
+     }
+        
+    
+    }
+
+}
